@@ -182,7 +182,7 @@ header{
     /* width: 23%; */
     /* margin-right: 15px; */
     background-color: white;
-    height: 275px !important;
+    /* height: 275px !important; */
     border-radius: 5px;
     cursor: pointer;
 }
@@ -193,7 +193,7 @@ header{
     font-weight: 600;
     margin-top: 10px;
     margin-bottom: 5px;
-    height: 42px;
+    /* height: 42px; */
     overflow: hidden;
 }
 .grid-card-text-1{
@@ -245,6 +245,7 @@ header{
 }
 .pl-card-in{
     width: 100%;
+    margin-top: 4px;
 }
 .iv-heading-1{
     font-size: 18px;
@@ -743,6 +744,86 @@ header{
 .social-imgs:hover{
     transform: translateY(-5px);
 }
+.btn-primary{
+    background-color: #3dabff !important;
+    border-color: #48afff !important;
+    font-weight: 500 !important;
+    font-size: 16px !important;
+    transition: 0.3s ease-in-out;
+}
+.btn-primary:hover{
+    background-color: #0091ff !important;
+    border-color: #0091ff !important;
+}
+.btn-primary:active{
+    transform: scale(0.98);
+}
+.CartBtn {
+    margin: 12px auto 0 auto;
+    width: 123px;
+    height: 32px;
+    border-radius: 8px;
+    border: none;
+    background-color: #fdbf14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    overflow: hidden;
+    box-shadow: 0px 5px 10px rgba(235, 227, 227, 0.103);
+    position: relative;
+  }
+  
+  .IconContainer {
+    position: absolute;
+    left: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .5s;
+  }
+  
+  .icon {
+    color: white;
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(41, 41, 41);
+    z-index: 1;
+    transition-duration: .5s;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 !important;
+  }
+  
+  .CartBtn:hover .IconContainer {
+    transform: translateX(58px);
+    border-radius: 40px;
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:hover .text {
+    transform: translate(10px,0px);
+    transition-duration: .5s;
+  }
+  
+  .CartBtn:active {
+    transform: scale(0.95);
+    transition-duration: .5s;
+  }
 @media(max-width:1205px){
     .latest-products{
         padding: 0px 15px;
