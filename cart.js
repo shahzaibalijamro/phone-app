@@ -38,6 +38,7 @@ function renderItems (){
             total += cartItems[i].price*cartItems[i].quantity;
             totalAmount.innerHTML = `Total Amount = ${total} $`
         }
+    localStorage.setItem('cartItems2', JSON.stringify(cartItems));
     }else{
         cartWrapper.innerHTML += `
             <h2>No Item Found</h2>

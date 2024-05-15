@@ -110,7 +110,10 @@ if (cartItems) {
 }else{
     addedItems = [];
 }
-
+let cartItems2 = JSON.parse(localStorage.getItem('cartItems2'));
+if (cartItems2) {
+    addedItems = cartItems2;
+}
 function addToCart(index) {
     if (addedItems.includes(phones[index])) {
         phones[index].quantity += 1;
