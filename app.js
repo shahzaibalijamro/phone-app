@@ -103,7 +103,14 @@ for (let i = 0; i < phones.length; i++) {
     </div>
     `
 }
-let addedItems = [];
+let addedItems;
+let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+if (cartItems) {
+    addedItems = cartItems;
+}else{
+    addedItems = [];
+}
+
 function addToCart(index) {
     if (addedItems.includes(phones[index])) {
         phones[index].quantity += 1;
