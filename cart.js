@@ -1,14 +1,13 @@
 let cartItems = JSON.parse(localStorage.getItem('cartItems'));
-if (cartItems) {
-    console.log(cartItems);
-}else{
-    console.log('no items found');
-}
+
 let cartWrapper = document.querySelector('.pl-row-1');
+
 let totalAmount = document.querySelector('.totalAmount');
+
+
 function renderItems (){
     let total = 0;
-    if (cartItems) {
+    if (cartItems != null && cartItems.length > 0) {
         for (let i = 0; i < cartItems.length; i++) {
             cartWrapper.innerHTML += `
             <div class="pl-card pl-card-1">
@@ -43,16 +42,20 @@ function renderItems (){
         cartWrapper.innerHTML += `
             <h2>No Item Found</h2>
             `
+            totalAmount.style.display = 'None';
     }
 }
+
 renderItems();
+
+
 function increaseQuantity(i) {
     cartWrapper.innerHTML = '';
     cartItems[i].quantity += 1;
     renderItems();
 }
-let noItemFound = document.querySelector('.noItemFound');
-noItemFound.style.display = 'None';
+
+
 function decreaseQuantity(i) {
     if (cartItems[i].quantity > 1) {
         cartWrapper.innerHTML = '';
@@ -64,7 +67,9 @@ function decreaseQuantity(i) {
     renderItems();
     if (cartItems.length < 1) {
         totalAmount.style.display = 'None';
-        noItemFound.style.display = 'Block';
-        noItemFound.innerHTML = 'No Item Found'
     }
+}
+
+function goBack() {
+    localStorage.setItem('cartItems3', JSON.stringify())
 }
