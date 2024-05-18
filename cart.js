@@ -71,5 +71,6 @@ function decreaseQuantity(i) {
 }
 
 function goBack() {
-    localStorage.setItem('cartItems3', JSON.stringify())
+    localStorage.setItem('cartItems2', JSON.stringify(cartItems));
+    window.location = 'index.html';
 }
