@@ -35,7 +35,7 @@ function renderItems (){
             </div>
             `
             total += cartItems[i].price*cartItems[i].quantity;
-            totalAmount.innerHTML = `Total Amount = ${total} $`
+            totalAmount.innerHTML = `Total Amount = ${total.toFixed(2)} $`
         }
     localStorage.setItem('cartItems2', JSON.stringify(cartItems));
     }else{
