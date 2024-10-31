@@ -1,3 +1,10 @@
+let addedItems;
+let cartItems = JSON.parse(localStorage.getItem('cartItems'));
+if (cartItems) {
+    addedItems = [...cartItems];
+} else {
+    addedItems = [];
+}
 const phones = [
     {
         brand: 'Samsung ',
@@ -50,7 +57,7 @@ const phones = [
         ram: 8,
         rom: 256,
         camera: '48 megapixel',
-        price: 	379.99,
+        price: 379.99,
         img: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f5-2.jpg'
     },
     {
@@ -79,7 +86,7 @@ for (let i = 0; i < phones.length; i++) {
     <div class="pl-card pl-card-1">
         <img class="pl-card-img" src=${phones[i].img} alt="">
         <div class="d-flex pl-card-in flex-column">
-            <p class="pl-card-text-1">${phones[i].brand+phones[i].model}</p>
+            <p class="pl-card-text-1">${phones[i].brand + phones[i].model}</p>
             <p class="pl-card-text-2">
                 <sup>$</sup>
                     ${phones[i].price}
@@ -87,9 +94,9 @@ for (let i = 0; i < phones.length; i++) {
             <div class="d-flex justify-content-between">
                 <p class="pl-card-text-3">
                     <sup>Rs</sup>
-                    ${phones[i].price+20}
+                    ${phones[i].price + 20}
                 </p>
-                <div class="price-diff-saving">${Math.ceil(Math.random()*20)}% OFF</div>
+                <div class="price-diff-saving">${Math.ceil(Math.random() * 20)}% OFF</div>
             </div>
             <div class='text-center'>
                 <button class="CartBtn" onclick='addToCart(${i})'>
@@ -103,25 +110,19 @@ for (let i = 0; i < phones.length; i++) {
     </div>
     `
 }
-let addedItems;
-let cartItems = JSON.parse(localStorage.getItem('cartItems'));
-if (cartItems) {
-    addedItems = cartItems;
-}else{
-    addedItems = [];
-}
-let cartItems2 = JSON.parse(localStorage.getItem('cartItems2'));
-if (cartItems2) {
-    addedItems = cartItems2;
-}
+console.log(addedItems);
 function addToCart(index) {
-    if (addedItems.includes(phones[index])) {
-        phones[index].quantity += 1;
+    const existingIndex = addedItems.findIndex(item => item.model === phones[index].model);
+    if (existingIndex !== -1) {
+        addedItems[existingIndex].quantity += 1;
     }else{
-        addedItems.push(phones[index]);
         phones[index].quantity = 1;
+        addedItems.push(phones[index]);
     }
     console.log(addedItems);
+    console.log(phones[index]);
+    console.log(addedItems);
+
 }
 
 function goToCart() {

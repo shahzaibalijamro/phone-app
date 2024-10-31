@@ -7,7 +7,7 @@ let totalAmount = document.querySelector('.totalAmount');
 
 function renderItems (){
     let total = 0;
-    if (cartItems != null && cartItems.length > 0) {
+    if (cartItems && cartItems.length > 0) {
         for (let i = 0; i < cartItems.length; i++) {
             cartWrapper.innerHTML += `
             <div class="pl-card pl-card-1">
@@ -37,12 +37,13 @@ function renderItems (){
             total += cartItems[i].price*cartItems[i].quantity;
             totalAmount.innerHTML = `Total Amount = ${total.toFixed(2)} $`
         }
-    localStorage.setItem('cartItems2', JSON.stringify(cartItems));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }else{
         cartWrapper.innerHTML += `
             <h2>No Item Found</h2>
             `
             totalAmount.style.display = 'None';
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }
 }
 
@@ -71,6 +72,6 @@ function decreaseQuantity(i) {
 }
 
 function goBack() {
-    localStorage.setItem('cartItems2', JSON.stringify(cartItems));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
     window.location = 'index.html';
 }
